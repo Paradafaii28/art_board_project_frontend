@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import Roomsnavbar from './Components/Roomsnavber';
+import Navbar from './Components/Navbar';
+import Livingroomcard from './Components/Livingroomcard';
+import Kitchencard from './Components/Kitchencard';
+import Bedroomcard from './Components/Bedroomcard';
+import Bathroomcard from './Components/Bathroomcard';
+import Homebackground from './Components/Homebackground';
+
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <header className="header-container">
+        <Navbar/>
+        </header>
+      <div className="App">
+        <Roomsnavbar/>
+        <Route exact path ="/livingroomcard" component={Livingroomcard}/>
+        <Route exact path ="/kitchencard" component={Kitchencard}/>
+        <Route exact path ="/bedroomcard" component={Bedroomcard}/>
+        <Route exact path ="/bathroomcard" component={Bathroomcard}/>
+        <Route exact path ="/" component={Homebackground}/>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+export default App

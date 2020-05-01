@@ -1,0 +1,26 @@
+.container-navbar{
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.style-navbar{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    font-size: 20px;
+}
+
+
+.container-logo{
+    width: 100%;
+}
+
+.style-logo{
+    display: flex;
+    margin-left: 220px;
+    width: 135px;
+    border-radius: 2rem;
+}
+
