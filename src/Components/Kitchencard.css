@@ -1,0 +1,14 @@
+.container-kitchencard{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+.container-kitchencard img{
+    width: 400px;
+    height: 500px;
+    align-items: center;
+}

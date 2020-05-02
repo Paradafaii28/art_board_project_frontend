@@ -1,5 +1,5 @@
 body{
-  padding: 30px;
+  /* padding: 30px; */
 }
 .header-container{
   margin-bottom: 120px;
@@ -9,6 +9,7 @@ body{
 .image-showroom{
   opacity: 0.6;
   width: 100%;
+  /* height: 85vh; */
   background-size: cover;
   
 }
