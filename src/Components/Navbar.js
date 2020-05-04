@@ -14,7 +14,9 @@ export default function Navbar() {
                 <li>Home</li>
                 </Link>
                 <li>Roomidea</li>
+                <Link to="/ideaboard">
                 <li>Ideaboard</li>
+                </Link>
                 <li>Login</li>
             </ul>
         </div>

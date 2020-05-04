@@ -1,14 +1,25 @@
 .container-bathroomcard{
-    width: 100%;
+    width: 60%;
     height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin: 5rem auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-row-gap: 30px;
+    
     
 }
 
-.container-bathroomcard img{
+.style-card{
     width: 400px;
-    height: 500px;
+    height: 400px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    box-shadow: 5px 15px 10px #8d8d8d;
+}
+
+.container-bathroomcard img{
+    width: 100%;
 }

@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import './Bedroomcard.css'
 
 export default class Bedroomcard extends Component {
-    state ={
-        theme: ""
-    }
-
+   
     showCards = () => {
-        return this.props.furnitures.map(bedroomcard => {
-            return <img key={bedroomcard.id} src = {bedroomcard.image}/>
+        let furnitures = this.props.furnitures
+        if(this.props.theme){
+            furnitures = this.props.furnitures.filter(furniture => {
+                return furniture.theme.tone === this.props.theme 
+            })
+        }
+        return furnitures.map(bedRoomCard => {
+            return <div className="style-card"><img key={bedRoomCard.id} src = {bedRoomCard.image}/></div>
         })
     }
 

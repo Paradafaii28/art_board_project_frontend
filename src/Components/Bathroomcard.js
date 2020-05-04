@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import './Bathroomcard.css'
 
 export default class Bathroomcard extends Component {
-    state ={
-        theme: ""
-    }
-
+    
     showCards = () => {
-        return this.props.furnitures.map(bathroomcard => {
-            return <img key={bathroomcard.id} src = {bathroomcard.image}/>
+        let furnitures = this.props.furnitures
+        if(this.props.theme){
+            furnitures = this.props.furnitures.filter(furniture => {
+                return furniture.theme.tone === this.props.theme 
+            })
+        }
+        return furnitures.map(bathRoomCard => {
+            return <div className="style-card"><img key={bathRoomCard.id} src = {bathRoomCard.image}/></div>
         })
     }
 

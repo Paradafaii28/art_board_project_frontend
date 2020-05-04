@@ -1,0 +1,159 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.left-container {
+    width: 70%;
+    float: left;
+
+    margin-bottom: 5em;
+    background-color: #ececec;
+    height: 70em;
+    box-shadow: 5px 15px 10px #8d8d8d;
+    border:  solid;
+    color:  #ececec;
+    border-width: 7px;
+}
+.right-container {
+    width: 16%;
+    float: left;
+
+    /* display: grid;
+    grid-template-columns: repeat(4, auto); */
+}
+
+.custom-color-title {
+    font-size: 150%;
+    margin: 0 auto;
+    margin-left: 1.5em;
+    text-transform: uppercase;
+}
+
+.custom-color-title1{
+    margin: 0 auto;
+    margin-left: 2em;
+    margin-bottom: 2em;
+    text-transform: capitalize;
+}
+
+.switcher {
+    list-style: none;
+  }
+
+.switcher li {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 0 15px 15px 0;
+    border-radius: 30px;
+}
+  
+.color-1 {
+background: #bb3b0e;
+
+}
+
+.color-2 {
+background: #ee720c;
+}
+
+
+.color-3 {
+background: #e3b04b;
+}
+
+.color-4 {
+background: #f8b400;
+}
+
+.color-5 {
+    background: #2c786c;
+}
+
+.color-6 {
+    background: #004445;
+}
+
+.color-7 {
+    background: #7d5a5a;
+}
+
+.color-8 {
+    background: #c2e8ce;
+}
+.color-9 {
+    background: #25ecad;
+}
+
+.color-10 {
+    background: #ff9292;
+}
+.color-11 {
+    background: #ff4291;
+}
+
+.color-12 {
+    background: #00a8cc;
+}
+.color-13 {
+    background: #c3edea;
+}
+.color-14 {
+    background: #f6d198;
+}
+.color-15 {
+    background: #ef962d;
+}
+
+.color-16 {
+    background: #b0a565;
+}
+.color-17 {
+    background: #ede68a;
+}
+
+.color-18 {
+    background: #e47676;
+}
+.color-19 {
+    background: #00adb5;
+}
+
+.color-20 {
+    background: #ffc045;
+}
+
+.color-21 {
+    background: #ff7844;
+}
+
+.color-22 {
+background: #bed7ee;
+}
+
+.color-23 {
+background: #c1a57b;
+}
+
+
+.color-24 {
+background: #888888;
+}
+
+.color-25 {
+background: #27496d;
+}
+
+.color-26 {
+    background: #4e8bfb;
+}
+
+.color-27 {
+    background: #132f62;
+}
+
+.color-28 {
+    background: #1515b6;
+}
+
