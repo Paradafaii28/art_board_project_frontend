@@ -1,16 +1,23 @@
 .container-livingroomcard{
-    width: 100%;
+    width: 60%;
     height: 100%;
-    margin: 0;
+    margin: 5rem auto;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-row-gap: 30px;
+}
+
+.style-card{
+    width: 400px;
+    height: 400px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    box-shadow: 5px 15px 10px #8d8d8d;
 }
 
 .container-livingroomcard img{
-    width: 400px;
-    height: 500px;
-    align-items: center;
+    width: 100%;
 }

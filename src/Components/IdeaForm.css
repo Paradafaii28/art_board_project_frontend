@@ -1,0 +1,37 @@
+.ideaform-container{
+    height: 80em;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #fafafa;
+}
+
+.image-bg-container {
+    height: 50em;
+}
+
+.image-bg-container img{
+    width: 90em;
+}
+
+.form-container{
+    width: 20%;
+}
+
+.form-container form{
+    margin-top: 10em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.style-form{
+    margin-top: 20em;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-form{
+    margin-top: 5%;
+   
+}
+
+

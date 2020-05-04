@@ -1,22 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital@1&display=swap');
 
 
-.showrooms-container{
+.dropdown-container{
     width: 100%;
     height: 100px;  
 }
 
-.showrooms{
+.dropdown{
     margin-top: 150px;
-    margin-left: 600px;
-    width: 60%;
+    margin-left: 700px;
+    width: 50%;
     display: flex;
     justify-content: space-around;
 } 
 
-.rooms_title{
+.dropbtn{
     font-size: 30px;
-    list-style-type: none;
     font-family: 'Bebas Neue', cursive;
+    border: none;
 }
+
+.dropbtn:focus {
+    outline: none; 
+}
+
+.dropbtn ul{
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    height: 200px;
+    padding-inline-start: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    justify-content: center;
+    margin:0 auto;
+    list-style-type: none;
+}
+
+.dropbtn a {
+    color: black;
+}
+
+.dropbtn li{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.style-list {
+    font-size: 80%;
+}
+
+.style-list:hover{
+    background-color: #9baecf4d;
+}
+
+.dropbtn :focus +ul{
+    opacity: 1;
+}
+
+
+
+
 
