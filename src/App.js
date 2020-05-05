@@ -25,50 +25,58 @@ class App extends Component {
     .then(res => this.setState({furnitures: res}))
   }
   
-
+ 
   selectTheme = (parameter) => {
     this.setState({theme: parameter})
   }
 
   livingRoomsFurniture = () => {
     return this.state.furnitures.filter(furniture => {
-        return furniture.category === "Home offices" || furniture.category === "Sofa" || furniture.category === "Table Cabinet"
+        return furniture.category === "Living Room" 
     })
   }
 
   kitchenRoomsFurniture = () => {
     return this.state.furnitures.filter(furniture => {
-        return furniture.category === "Dining set"})
+        return furniture.category === "Kitchen and Dining"})
   }
 
   bedRoomsFurniture = () => {
     return this.state.furnitures.filter(furniture => {
-        return furniture.category === "Bedroom set" || furniture.category === "Nightstands"
+        return furniture.category === "Bedroom" 
       })
   }
 
   bathRoomsFurniture = () => {
     return this.state.furnitures.filter(furniture => {
-        return furniture.category === "Bath vanities"})
+        return furniture.category === "Bathroom"})
+  }
+
+  matchFurniture = (name, tone) => {
+    console.log("alice")
+       return this.state.furnitures.filter(furniture => {
+            return furniture.category === name && furniture.theme.tone === tone  
+        })
   }
 
   render(){
     return (
       <>
           <header className="header-container">
-          <Navbar/>
-          </header>
-        <div className="App">
-          {this.props.location.pathname === "/ideaboard" || this.props.location.pathname === "/ideaform" ? null : <Roomsnavbar selectTheme={this.selectTheme}/>}
-          <Route exact path ="/livingroomcard" render={(routerProps) => <Livingroomcard theme={this.state.theme} furnitures={this.livingRoomsFurniture()}/>} />
-          <Route exact path ="/kitchencard" render={(routerProps) => <Kitchencard  theme={this.state.theme} furnitures={this.kitchenRoomsFurniture()}/>}/>
-          <Route exact path ="/bedroomcard" render={(routerProps) => <Bedroomcard  theme={this.state.theme} furnitures={this.bedRoomsFurniture()}/>}/>
-          <Route exact path ="/bathroomcard" render={(routerProps) => <Bathroomcard  theme={this.state.theme} furnitures={this.bathRoomsFurniture()}/>}/>
-          <Route exact path ="/" component={Homebackground}/>
-          <Route exact path ="/ideaboard" component={Ideaboard}/>
-          <Route exact path ="/ideaform" component={IdeaForm}/>
-          {/* {!this.props.location.pathname === "/ideaboard" ? null : <Route exact path ="/ideaboard" component={Ideaboard}/>} */}
-        </div>
+            <Navbar/>
+            </header>
+          <div className="App">
+            {this.props.location.pathname === "/ideaboard" || this.props.location.pathname === "/ideaform" ? null : <Roomsnavbar selectTheme={this.selectTheme}/>}
+            <Route exact path ="/livingroomcard" render={(routerProps) => <Livingroomcard theme={this.state.theme} furnitures={this.livingRoomsFurniture()}/>} />
+            <Route exact path ="/kitchencard" render={(routerProps) => <Kitchencard  theme={this.state.theme} furnitures={this.kitchenRoomsFurniture()}/>}/>
+            <Route exact path ="/bedroomcard" render={(routerProps) => <Bedroomcard  theme={this.state.theme} furnitures={this.bedRoomsFurniture()}/>}/>
+            <Route exact path ="/bathroomcard" render={(routerProps) => <Bathroomcard  theme={this.state.theme} furnitures={this.bathRoomsFurniture()}/>}/>
+            <Route exact path ="/" component={Homebackground}/>
+            <Route exact path ="/ideaboard" component={Ideaboard}/>
+            <Route exact path ="/ideaform" render={(routerProps) => 
+              <IdeaForm matchFurniture ={this.matchFurniture}/>}
+            />
+          </div>
       </>
     );
   }

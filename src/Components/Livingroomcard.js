@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Livingroomcard.css'
+import IdeaForm from './IdeaForm'
 
 export default class Livingroomcard extends Component {
 

@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import './IdeaForm.css'
 import Chairbg from '../theme/blackmodern.jpeg'
-import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import { Redirect } from 'react-router-dom';
 
 
 export default class IdeaForm extends Component {
     state ={
-        name:"",
-        tone:"",
+            name:"",
+            tone:"",
+            color:"",
+            image:"",
+            description:"",
         rooms: [
             {
                 value: 'Living Room',
@@ -52,17 +55,24 @@ export default class IdeaForm extends Component {
             [event.target.name]: event.target.value
         })
     };
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+            this.props.matchFurniture(this.state.name, this.state.tone) 
+    }
+
     render() {
-        const {name, tone} = this.state
-      
+        const {name, tone, color, image, description} = this.state
+    
         return (
             <div className="ideaform-container">
                 <div className="image-bg-container">
                     <img src={Chairbg}/>
                 </div>
                 <div className="form-container">
-                    <form className="style-form">
-                        <div className="select-rooms">
+                    <form className="style-form" onSubmit={this.handleSubmit} >
+                    <h1 className="ideaboard-title">Create your Ideaboard</h1>
+                        <div className="select-form">
                         <TextField
                             id="outlined-select-rooms"
                             select
@@ -79,8 +89,6 @@ export default class IdeaForm extends Component {
                             </MenuItem>
                             ))}
                         </TextField>
-                        </div>
-                        <div className="select-theme">
                         <TextField
                             id="outlined-select-theme"
                             select
@@ -97,49 +105,50 @@ export default class IdeaForm extends Component {
                             </MenuItem>
                             ))}
                         </TextField>
-                        </div>
-                        <div className="input-form">
-                        
                         <TextField
-                            label="None"
+                            label="Colors"
                             id="outlined-margin-none"
-                            defaultValue="Default Value"
+                            name="color"
+                            value={color}
+                            placeholder="Add Colors"
                             className="style-form"
-                            helperText="Some important text"
+                            helperText="please add the colors"
                             variant="outlined"
+                            onChange={this.handleChange}
                         />
-                        <TextField
-                            label="Dense"
-                            id="outlined-margin-dense"
-                            defaultValue="Default Value"
-                            className="style-form"
-                            helperText="Some important text"
-                            margin="dense"
-                            variant="outlined"
-                        />
-                        <TextField
-                            label="Normal"
-                            id="outlined-margin-normal"
-                            defaultValue="Default Value"
-                            className="style-form"
-                            helperText="Some important text"
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        <TextField
+                        </div>
+                        <br></br>
+                        <div className="input-form">
+                         <TextField
                             id="outlined-full-width"
-                            label="Label"
-                            style={{ margin: 8 }}
-                            placeholder="Placeholder"
-                            helperText="Full width!"
+                            label="Image"
+                            name="image"
+                            value={image}
+                            placeholder="Image url"
                             fullWidth
-                            margin="normal"
                             InputLabelProps={{
                             shrink: true,
                             }}
                             variant="outlined"
+                            onChange={this.handleChange}
+                        />
+                        <br></br>
+                        <TextField
+                            id="outlined-full-width"
+                            label="Description"
+                            name="description"
+                            value={description}
+                            placeholder="Description"
+                            fullWidth
+                            InputLabelProps={{
+                            shrink: true,
+                            }}
+                            variant="outlined"
+                            onChange={this.handleChange}
                         />
                         </div>
+                        <br></br>
+                        <input type="submit" value="SUBMIT" className="style-button"/>
                     </form>
                 </div>
             </div>
