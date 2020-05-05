@@ -25,31 +25,31 @@ class App extends Component {
     .then(res => this.setState({furnitures: res}))
   }
   
-
+ 
   selectTheme = (parameter) => {
     this.setState({theme: parameter})
   }
 
   livingRoomsFurniture = () => {
     return this.state.furnitures.filter(furniture => {
-        return furniture.category === "Home offices" || furniture.category === "Sofa" || furniture.category === "Table Cabinet"
+        return furniture.category === "Living Room" 
     })
   }
 
   kitchenRoomsFurniture = () => {
     return this.state.furnitures.filter(furniture => {
-        return furniture.category === "Dining set"})
+        return furniture.category === "Kitchen and Dining"})
   }
 
   bedRoomsFurniture = () => {
     return this.state.furnitures.filter(furniture => {
-        return furniture.category === "Bedroom set" || furniture.category === "Nightstands"
+        return furniture.category === "Bedroom" 
       })
   }
 
   bathRoomsFurniture = () => {
     return this.state.furnitures.filter(furniture => {
-        return furniture.category === "Bath vanities"})
+        return furniture.category === "Bathroom"})
   }
 
   render(){
@@ -66,8 +66,14 @@ class App extends Component {
           <Route exact path ="/bathroomcard" render={(routerProps) => <Bathroomcard  theme={this.state.theme} furnitures={this.bathRoomsFurniture()}/>}/>
           <Route exact path ="/" component={Homebackground}/>
           <Route exact path ="/ideaboard" component={Ideaboard}/>
-          <Route exact path ="/ideaform" component={IdeaForm}/>
-          {/* {!this.props.location.pathname === "/ideaboard" ? null : <Route exact path ="/ideaboard" component={Ideaboard}/>} */}
+          <Route exact path ="/ideaform" render={(routerProps) => 
+            <IdeaForm 
+            theme={this.state.theme} furnitures={this.livingRoomsFurniture()} 
+            theme={this.state.theme} furnitures={this.kitchenRoomsFurniture()} 
+            theme={this.state.theme} furnitures={this.bedRoomsFurniture()} 
+            theme={this.state.theme} furnitures={this.bathRoomsFurniture()}
+            />}
+          />
         </div>
       </>
     );
