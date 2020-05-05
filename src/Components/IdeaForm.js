@@ -3,8 +3,7 @@ import './IdeaForm.css'
 import Chairbg from '../theme/blackmodern.jpeg'
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Link } from 'react-router-dom';
-import Ideaboard from './Ideaboard';
+import { Redirect } from 'react-router-dom';
 
 
 export default class IdeaForm extends Component {
@@ -57,30 +56,21 @@ export default class IdeaForm extends Component {
         })
     };
 
-    showAllFurniture = () => {
-        let furnitures = this.props.furnitures
-        if (this.state.name, this.state.tone){ 
-            furnitures = this.props.furnitures.filter(furniture => {
-                return furniture.category === this.state.name && furniture.theme.tone === this.state.tone  
-            })
-        }
-    }
-
     handleSubmit = (event) => {
         event.preventDefault()
-        this.showAllFurniture(this.state)
+            this.props.matchFurniture(this.state.name, this.state.tone) 
     }
+
     render() {
-        const {name, tone} = this.state
-      
+        const {name, tone, color, image, description} = this.state
+    
         return (
             <div className="ideaform-container">
-                {/* <Ideaboard showAllFurniture = {this.showAllFurniture()}/> */}
                 <div className="image-bg-container">
                     <img src={Chairbg}/>
                 </div>
                 <div className="form-container">
-                    <form className="style-form" onSubmit={this.handleSubmit}>
+                    <form className="style-form" onSubmit={this.handleSubmit} >
                     <h1 className="ideaboard-title">Create your Ideaboard</h1>
                         <div className="select-form">
                         <TextField
@@ -119,7 +109,7 @@ export default class IdeaForm extends Component {
                             label="Colors"
                             id="outlined-margin-none"
                             name="color"
-                            // value={color}
+                            value={color}
                             placeholder="Add Colors"
                             className="style-form"
                             helperText="please add the colors"
@@ -133,7 +123,7 @@ export default class IdeaForm extends Component {
                             id="outlined-full-width"
                             label="Image"
                             name="image"
-                            // value={image}
+                            value={image}
                             placeholder="Image url"
                             fullWidth
                             InputLabelProps={{
@@ -147,7 +137,7 @@ export default class IdeaForm extends Component {
                             id="outlined-full-width"
                             label="Description"
                             name="description"
-                            // value={description}
+                            value={description}
                             placeholder="Description"
                             fullWidth
                             InputLabelProps={{
@@ -158,9 +148,7 @@ export default class IdeaForm extends Component {
                         />
                         </div>
                         <br></br>
-                        <Link to='./ideaboard'>
                         <input type="submit" value="SUBMIT" className="style-button"/>
-                        </Link>
                     </form>
                 </div>
             </div>
