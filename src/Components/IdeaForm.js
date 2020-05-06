@@ -3,7 +3,6 @@ import './IdeaForm.css'
 import Chairbg from '../theme/blackmodern.jpeg'
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Redirect } from 'react-router-dom';
 
 
 export default class IdeaForm extends Component {
@@ -19,8 +18,8 @@ export default class IdeaForm extends Component {
                 label: 'Living Room',
             },
             {
-                value: 'Kitchen&Dining Room',
-                label: 'Kitchen&Dining Room',
+                value: 'Kitchen and Dining',
+                label: 'Kitchen and Dining',
             },
             {
                 value: 'Bedroom',
@@ -58,10 +57,12 @@ export default class IdeaForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-            this.props.matchFurniture(this.state.name, this.state.tone) 
+            this.props.matchFurniture(this.state.name, this.state.tone)
+            this.props.history.push('/ideaboard')
     }
 
     render() {
+    
         const {name, tone, color, image, description} = this.state
     
         return (

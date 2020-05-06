@@ -3,7 +3,7 @@ import './Livingroomcard.css'
 import IdeaForm from './IdeaForm'
 
 export default class Livingroomcard extends Component {
-
+    
     showCards = () => {
         let furnitures = this.props.furnitures
         if(this.props.theme){
