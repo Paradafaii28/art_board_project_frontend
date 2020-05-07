@@ -1,0 +1,24 @@
+.container-livingRoomFurniture{
+    width: 60%;
+    height: 100%;
+    margin: 5rem auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-row-gap: 30px;
+}
+
+.container-livingRoomFurniture img{
+    width: 100%;
+}
+
+.style-furnitureCard{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    box-shadow: 5px 15px 10px #8d8d8d;
+}
+

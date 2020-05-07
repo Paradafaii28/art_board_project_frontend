@@ -57,7 +57,7 @@ export default class IdeaForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-            this.props.matchFurniture(this.state.name, this.state.tone)
+            this.props.matchedFurniture(this.state.name, this.state.tone)
             this.props.history.push('/ideaboard')
     }
 

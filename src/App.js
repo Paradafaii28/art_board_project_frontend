@@ -8,8 +8,9 @@ import Bathroomcard from './Components/Bathroomcard';
 import Homebackground from './Components/Homebackground';
 import Ideaboard from './Components/Ideaboard';
 import IdeaForm from './Components/IdeaForm';
+import MatchThemeFurniture from './Components/MatchThemeFurniture';
 import './App.css';
-import { BrowserRouter as Router, Route, withRouter, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 
 class App extends Component {
   
@@ -53,21 +54,28 @@ class App extends Component {
         return furniture.category === "Bathroom"})
   }
 
-  matchFurniture = (name, tone) => {
-      const matchedFurniture = this.state.furnitures.filter(furniture => {
+  matchedFurniture = (name, tone) => {
+      const currentMatchedFurniture = this.state.furnitures.filter(furniture => {
             return furniture.category === name && furniture.theme.tone === tone  
       })
-      this.setState({matchedFurniture: matchedFurniture})
+      this.setState({matchedFurniture: currentMatchedFurniture})
   }
 
   addFurnitureToIdeaBoard = (newFurniture) => {
-    if (!this.state.addFurniture.find(currentFurniture => newFurniture.id === currentFurniture.id)){
+    if (!this.state.addFurniture.find(currentFurniture => newFurniture === currentFurniture)){
         this.setState({addFurniture:[...this.state.addFurniture, newFurniture]})
     }
   }
 
+  removeFurnitureFromIdeaBoard = (newFurniture) =>{
+    const removedFurniture = this.state.addFurniture.filter(currentFurniture => currentFurniture !== newFurniture)
+    this.setState({
+      addFurniture:removedFurniture
+      // going to filter the one and set the newstate to it give back in the array
+    })
+  }
+
   render(){
-   
     return (
       <>
           <header className="header-container">
@@ -82,10 +90,12 @@ class App extends Component {
             <Route exact path ="/" component={Homebackground}/>
             <Route exact path ="/ideaboard" render={(routerProps)=> <Ideaboard 
               matchedFurniture ={this.state.matchedFurniture}
-              addFurnitureToIdeaBoard ={this.state.addFurnitureToIdeaBoard}
+              addFurniture ={this.state.addFurniture}
+              addFurnitureToIdeaBoard ={this.addFurnitureToIdeaBoard}
+              removeFurnitureFromIdeaBoard ={this.removeFurnitureFromIdeaBoard}
               />}/>
             <Route exact path ="/ideaform" render={(routerProps) => 
-              <IdeaForm matchFurniture ={this.matchFurniture} {...routerProps}/>}
+              <IdeaForm matchedFurniture ={this.matchedFurniture} {...routerProps}/>}
             />
           </div>
       </>
