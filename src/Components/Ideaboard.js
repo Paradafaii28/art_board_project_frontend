@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import MatchThemeFurniture from './MatchThemeFurniture'
+import AddFurnitureToIdeaBoard from './AddFurnitureToIdeaBoard'
 import './Ideaboard.css'
 
 export default class Ideaboard extends Component {
@@ -11,9 +13,9 @@ export default class Ideaboard extends Component {
         this.setState({color: paramater})
     }
 
-    matchedThemeFurniture = () => {
-        return this.props.matchedFurniture.map(matchedThemeFurniture => {
-            return <div className="style-furnitureCard"><img src={matchedThemeFurniture.image}/></div>
+    themeMatchToFurniture = () => {
+        return this.props.matchedFurniture.map(themeMatchToFurniture => {
+            return <div className="style-furnitureCard"><img src={themeMatchToFurniture.image}/></div>
         })
     }
 
@@ -22,7 +24,12 @@ export default class Ideaboard extends Component {
             <>
                 <section className="container">
                     <div className="left-container" style={{borderColor: this.state.color}}>
-                        <div className="ideaboard-container"></div>
+                        <div className="ideaboard-container"> 
+                            <AddFurnitureToIdeaBoard 
+                                addMatchedFurnitureCards = {this.props.addFurniture} 
+                                removeFurnitureFromIdeaBoard ={this.props.removeFurnitureFromIdeaBoard}  
+                            />
+                        </div>
                     </div>
                     <div className="right-container">
                         <div className="custom-color">
@@ -61,8 +68,11 @@ export default class Ideaboard extends Component {
                         </div>
                     </div>
                 </section>
-                <section className="container-livingRoomFurniture">
-                        {this.matchedThemeFurniture()}
+                <section>
+                    <MatchThemeFurniture 
+                        matchedFurniture = {this.props.matchedFurniture} 
+                        addFurnitureToIdeaBoard ={this.props.addFurnitureToIdeaBoard} 
+                    />  
                 </section>
             </>
         )

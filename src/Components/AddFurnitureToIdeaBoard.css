@@ -1,0 +1,17 @@
+.container-all-add-match-furniture-cards{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-row-gap: 30px;
+}
+
+.add-matched-furniture-card {
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.add-matched-furniture-card img{
+    width: 60%;
+}
