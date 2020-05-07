@@ -8,13 +8,20 @@ export default function MatchThemeFurniture(props) {
                 console.log("alice")
                 {props.addFurnitureToIdeaBoard ? props.addFurnitureToIdeaBoard(themeMatchToFurniture) : props.removeFurnitureFromIdeaBoard(themeMatchToFurniture)}
             }}>
+            <h1>{themeMatchToFurniture.category}</h1>
             <img src={themeMatchToFurniture.image}/></div>
         })
     } 
 
     return (
-        <div className="container-livingRoomFurniture">
-             {themeMatchToFurniture(props)}
+        <div className="container-allmatchfurniture">
+            <div className="container-title-matchfurniture">
+                <h1>Build your own board</h1>
+                <h3>(Choose the furniture below)</h3>
+            </div>
+            <div className="container-matchfurniture">
+                {themeMatchToFurniture(props)}
+            </div>
         </div>
     )
 }

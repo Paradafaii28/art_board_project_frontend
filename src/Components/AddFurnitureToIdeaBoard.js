@@ -6,9 +6,8 @@ export default function AddFurnitureToIdeaBoard(props) {
     const  AllAddMatchedFurnitureCards = (props) => {
         return props.addMatchedFurnitureCards.map(addMatchedFurnitureCard => {
             return<div className="add-matched-furniture-card" onClick = {(event) => {
-                console.log("alice")
-                {props.removeFurnitureFromIdeaBoard(addMatchedFurnitureCard)}
-            }}>><img src={addMatchedFurnitureCard.image}/></div>
+                {props.removeFurnitureFromIdeaBoard(addMatchedFurnitureCard)}}}>
+                <img src={addMatchedFurnitureCard.image}/></div>
         })
     }
     return (

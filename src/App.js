@@ -8,7 +8,6 @@ import Bathroomcard from './Components/Bathroomcard';
 import Homebackground from './Components/Homebackground';
 import Ideaboard from './Components/Ideaboard';
 import IdeaForm from './Components/IdeaForm';
-import MatchThemeFurniture from './Components/MatchThemeFurniture';
 import './App.css';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 
@@ -54,9 +53,9 @@ class App extends Component {
         return furniture.category === "Bathroom"})
   }
 
-  matchedFurniture = (name, tone) => {
+  matchedFurniture = (name, tone, description) => {
       const currentMatchedFurniture = this.state.furnitures.filter(furniture => {
-            return furniture.category === name && furniture.theme.tone === tone  
+            return furniture.category === name && furniture.theme.tone === tone 
       })
       this.setState({matchedFurniture: currentMatchedFurniture})
   }
