@@ -13,18 +13,13 @@ export default class Ideaboard extends Component {
         this.setState({color: paramater})
     }
 
-    themeMatchToFurniture = () => {
-        return this.props.matchedFurniture.map(themeMatchToFurniture => {
-            return <div className="style-furnitureCard"><img src={themeMatchToFurniture.image}/></div>
-        })
-    }
-
     render() {
         return (
             <>
                 <section className="container">
                     <div className="left-container" style={{borderColor: this.state.color}}>
                         <div className="ideaboard-container"> 
+                            <h1>{this.props.matchedFurniture.category}</h1>
                             <AddFurnitureToIdeaBoard 
                                 addMatchedFurnitureCards = {this.props.addFurniture} 
                                 removeFurnitureFromIdeaBoard ={this.props.removeFurnitureFromIdeaBoard}  

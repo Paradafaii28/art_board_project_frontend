@@ -19,9 +19,6 @@
 .right-container {
     width: 16%;
     float: left;
-
-    /* display: grid;
-    grid-template-columns: repeat(4, auto); */
 }
 
 .custom-color-title {
@@ -48,6 +45,7 @@
     height: 40px;
     margin: 0 15px 15px 0;
     border-radius: 30px;
+    cursor: pointer;
 }
   
 .color-1 {
