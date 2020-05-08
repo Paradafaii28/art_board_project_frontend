@@ -1,0 +1,17 @@
+.style-room-idea-card{
+    margin: 0 auto;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.container-show-all-room{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-row-gap: 30px;
+}
+
+
+.style-room-idea-card img{
+    width: 600px;
+}

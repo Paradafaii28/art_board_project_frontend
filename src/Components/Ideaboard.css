@@ -156,4 +156,20 @@ background: #27496d;
     background: #1515b6;
 }
 
+.save-button{
+    width: 6em;
+    height: 3em;
+    font-size: 120%;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3em;
+    margin-right: 1em;
+}
+
+
 

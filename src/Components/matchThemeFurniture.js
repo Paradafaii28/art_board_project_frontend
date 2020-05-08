@@ -5,10 +5,9 @@ export default function MatchThemeFurniture(props) {
     const themeMatchToFurniture = (props) => {
         return props.matchedFurniture.map(themeMatchToFurniture => {
             return <div className="style-furnitureCard" onClick = {(event) => {
-                console.log("alice")
                 {props.addFurnitureToIdeaBoard ? props.addFurnitureToIdeaBoard(themeMatchToFurniture) : props.removeFurnitureFromIdeaBoard(themeMatchToFurniture)}
             }}>
-            <h1>{themeMatchToFurniture.category}</h1>
+            {/* <h1>{themeMatchToFurniture.category}</h1> */}
             <img src={themeMatchToFurniture.image}/></div>
         })
     } 

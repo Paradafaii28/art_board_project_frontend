@@ -19,11 +19,17 @@ export default class Ideaboard extends Component {
                 <section className="container">
                     <div className="left-container" style={{borderColor: this.state.color}}>
                         <div className="ideaboard-container"> 
-                            <h1>{this.props.matchedFurniture.category}</h1>
+                            {/* <h1>{this.props.matchedFurniture.category}</h1> */}
                             <AddFurnitureToIdeaBoard 
                                 addMatchedFurnitureCards = {this.props.addFurniture} 
-                                removeFurnitureFromIdeaBoard ={this.props.removeFurnitureFromIdeaBoard}  
+                                removeFurnitureFromIdeaBoard ={this.props.removeFurnitureFromIdeaBoard}
+                                saveIdeaBoard = {this.props.saveIdeaBoard}  
                             />
+                            <div className="button-container">
+                                <button className="save-button" onClick = {(event) => {
+                                console.log("alice")
+                                    {this.props.saveIdeaBoard()}}}>Save</button>
+                            </div>
                         </div>
                     </div>
                     <div className="right-container">
