@@ -17,13 +17,17 @@ export default class Ideaboard extends Component {
         return (
             <>
                 <section className="container">
+                    {/* <div className="ideaboard-title">
+                        <h1>Living Room</h1>
+                    </div> */}
                     <div className="left-container" style={{borderColor: this.state.color}}>
                         <div className="ideaboard-container"> 
-                            <h1>{this.props.matchedFurniture.category}</h1>
+                            {/* <h1>{this.props.matchedFurniture.category}</h1> */}
                             <AddFurnitureToIdeaBoard 
                                 addMatchedFurnitureCards = {this.props.addFurniture} 
-                                removeFurnitureFromIdeaBoard ={this.props.removeFurnitureFromIdeaBoard}  
-                            />
+                                removeFurnitureFromIdeaBoard ={this.props.removeFurnitureFromIdeaBoard}
+                                saveIdeaBoard = {this.props.saveIdeaBoard}  
+                                />
                         </div>
                     </div>
                     <div className="right-container">
@@ -60,6 +64,9 @@ export default class Ideaboard extends Component {
                                 <li className="color-27" onClick={(event) => this.changeTheColor("#132f62")}></li>
                                 <li className="color-28" onClick={(event) => this.changeTheColor("#1515b6")}></li>
                             </ul>
+                            <div className="button-container">
+                                <button className="save-button" onClick = {(event) => this.props.saveIdeaBoard()}>Save your ideaboard</button>
+                            </div>   
                         </div>
                     </div>
                 </section>

@@ -8,6 +8,11 @@
     grid-row-gap: 30px;
 }
 
+
+.container-livingroomcard img{
+    width: 100%;
+}
+
 .style-card{
     width: 400px;
     height: 400px;
@@ -16,8 +21,4 @@
     justify-content: center;
     margin:0 auto;
     box-shadow: 5px 15px 10px #8d8d8d;
-}
-
-.container-livingroomcard img{
-    width: 100%;
 }

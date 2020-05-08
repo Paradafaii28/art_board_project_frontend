@@ -6,7 +6,7 @@
 .left-container {
     width: 70%;
     float: left;
-
+    margin-top: 2em;
     margin-bottom: 5em;
     background-color: #ececec;
     height: 70em;
@@ -17,6 +17,7 @@
     overflow: scroll;
 }
 .right-container {
+    margin-top: 2em;
     width: 16%;
     float: left;
 }
@@ -156,4 +157,22 @@ background: #27496d;
     background: #1515b6;
 }
 
+.save-button{
+    width: 15em;
+    height: 3em;
+    font-size: 110%;
+    text-transform: uppercase;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 18em; 
+}
+
+/* .ideaboard-title{
+    margin-left: 5rem;
+} */
 

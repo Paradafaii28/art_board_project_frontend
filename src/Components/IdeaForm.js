@@ -12,6 +12,7 @@ export default class IdeaForm extends Component {
             color:"",
             image:"",
             description:"",
+            roomid: [],
         rooms: [
             {
                 value: 'Living Room',
