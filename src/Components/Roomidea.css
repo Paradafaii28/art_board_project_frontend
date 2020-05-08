@@ -5,13 +5,23 @@
     justify-content: center;
 }
 
-.container-show-all-room{
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-row-gap: 30px;
+.room-idea-tittle{
+    margin-left: 4rem;
+    margin-right: 4rem;
+    font-size: 35px;
 }
 
+hr{
+    border-width: 1.5px;
+}
 
 .style-room-idea-card img{
     width: 600px;
+}
+
+.container-roomideascard {
+    margin-top: 10em;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-row-gap: 30px;
 }

@@ -21,7 +21,13 @@ export default class Roomidea extends Component {
     render() {
         return (
             <div className="container-show-all-room">
-                {this.showAllRoomIdeas()}
+                <div className="room-idea-tittle">
+                    <h1>ROOM IDEAS</h1>
+                    <hr></hr>
+                </div>
+                <div className="container-roomideascard">
+                    {this.showAllRoomIdeas()}
+                </div>
             </div>
         )
     }

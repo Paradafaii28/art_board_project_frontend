@@ -11,15 +11,18 @@ export default function Navbar() {
             </div>
             <ul className="style-navbar">
                 <Link to='/'>
-                <li>Home</li>
+                    <li>Home</li>
                 </Link>
                 <Link to='/roomideas'>
-                <li>Roomidea</li>
+                    <li>Roomidea</li>
                 </Link>
                 <Link to="/ideaboard">
-                <li>Ideaboard</li>
+                    <li>Ideaboard</li>
                 </Link>
-                <li>Login</li>
+                <Link to="/yourideas">
+                    <li>Your Ideas</li>
+                </Link>
+                    <li>Login</li>
             </ul>
         </div>
     )

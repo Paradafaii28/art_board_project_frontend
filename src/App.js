@@ -9,6 +9,7 @@ import Homebackground from './Components/Homebackground';
 import Ideaboard from './Components/Ideaboard';
 import IdeaForm from './Components/IdeaForm';
 import RoomIdea from './Components/Roomidea';
+import YourIdeas from './Components/YourIdeas';
 import './App.css';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 
@@ -19,7 +20,8 @@ class App extends Component {
     roomid: [],
     theme: "",
     matchedFurniture: [],
-    addFurniture: []
+    addFurniture: [],
+    roomideas: []
   }
   
   componentDidMount(){
@@ -73,13 +75,6 @@ class App extends Component {
   addFurnitureToIdeaBoard = (newFurniture) => {
     if (!this.state.addFurniture.find(currentFurniture => newFurniture === currentFurniture)){
         this.setState({addFurniture:[...this.state.addFurniture, newFurniture]})
-        fetch('http://localhost:3000/furnitures',{
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({newFurniture: newFurniture})
-        })
     }
   }
 
@@ -89,8 +84,9 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({addFurniture: this.state.addFurniture, roomid: this.state.roomid})
-    })
+      body: JSON.stringify({addFurniture: this.state.addFurniture, roomid: this.state.roomid.id})
+    }).then(res => res.json())
+      .then(res => this.setState({roomideas: res}))
   }
 
   removeFurnitureFromIdeaBoard = (newFurniture) =>{
@@ -109,17 +105,18 @@ class App extends Component {
             <Navbar/>
           </header>
           <div className="App">
-            {this.props.location.pathname === "/ideaboard" || this.props.location.pathname === "/ideaform" || this.props.location.pathname === "/roomideas"  ? null : <Roomsnavbar selectTheme={this.selectTheme}/>}
+            {this.props.location.pathname === "/ideaboard" || this.props.location.pathname === "/ideaform" || this.props.location.pathname === "/roomideas" || this.props.location.pathname === "/yourideas" ? null : <Roomsnavbar selectTheme={this.selectTheme}/>}
             <Route exact path ="/livingroomcard" render={(routerProps) => <Livingroomcard theme={this.state.theme} furnitures={this.livingRoomsFurniture()} {...routerProps}/>} />
             <Route exact path ="/kitchencard" render={(routerProps) => <Kitchencard  theme={this.state.theme} furnitures={this.kitchenRoomsFurniture()} {...routerProps}/>}/>
             <Route exact path ="/bedroomcard" render={(routerProps) => <Bedroomcard  theme={this.state.theme} furnitures={this.bedRoomsFurniture()} {...routerProps}/>}/>
             <Route exact path ="/bathroomcard" render={(routerProps) => <Bathroomcard  theme={this.state.theme} furnitures={this.bathRoomsFurniture()} {...routerProps}/>}/>
             <Route exact path ="/" component={Homebackground}/>
             <Route exact path ="/roomideas" component={RoomIdea}/>
+            <Route exact path ="/yourideas" render={(routerProps) => <YourIdeas/>}/>
             <Route exact path ="/ideaboard" render={(routerProps) => <Ideaboard 
               matchedFurniture ={this.state.matchedFurniture}
               addFurniture ={this.state.addFurniture}
-              roomId = {this.props.roomid}
+              roomId = {this.state.roomid}
               addFurnitureToIdeaBoard ={this.addFurnitureToIdeaBoard}
               removeFurnitureFromIdeaBoard ={this.removeFurnitureFromIdeaBoard}
               saveIdeaBoard = {this.saveIdeaBoard}

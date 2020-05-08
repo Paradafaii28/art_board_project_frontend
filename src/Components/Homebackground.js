@@ -16,13 +16,18 @@ export default function Homebackground() {
             <div className="footer-container">
                 <ul className="style-navbar-footer">
                     <Link to='/'>
-                    <li>Home</li>
+                        <li>Home</li>
                     </Link>
-                    <li>Roomidea</li>
+                    <Link to="/roomideas">
+                        <li>Roomidea</li>
+                    </Link>
                     <Link to="/ideaboard">
-                    <li>Ideaboard</li>
+                        <li>Ideaboard</li>
                     </Link>
-                    <li>Login</li>
+                    <Link to="/yourideas">
+                        <li>Your Ideas</li>
+                    </Link>
+                        <li>Login</li>
                 </ul>
             </div>
         </div>
